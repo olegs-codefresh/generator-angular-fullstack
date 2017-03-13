@@ -1,0 +1,15 @@
+version: '1.0'
+steps:
+
+  build_image:
+    title: Build image ...
+    type: build
+    image_name: angular-fullstack
+    tag: ${{CF_BRANCH}}
+
+  launch_environment:
+    title: Launching application
+    type: launch-composition
+    composition_variables:
+      - 'CF_BRANCH=${{CF_BRANCH}}'
+    composition: './docker-compose.yml'

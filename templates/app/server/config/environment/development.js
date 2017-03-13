@@ -7,7 +7,7 @@ module.exports = {<% if (filters.mongoose) { %>
 
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/<%= lodash.slugify(appname) %>-dev'
+    uri: `mongodb://${process.env.MONGODB_DOCKER_SERVICE || 'localhost'}/<%= lodash.slugify(appname) %>-dev`
   },<% } if (filters.sequelize) { %>
 
   // Sequelize connection opions
